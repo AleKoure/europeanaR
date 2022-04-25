@@ -1,4 +1,4 @@
 library(testthat)
-library(euRopeana)
+library(europeanaR)
 
-test_check("euRopeana")
+test_check("europeanaR")

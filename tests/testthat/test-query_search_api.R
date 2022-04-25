@@ -1,57 +1,23 @@
+test_that("Simple query is OK!", {
+  resp <- query_search_api("arioch")
+  expect_equal(class(resp), "europeana_search_api")
+  expect_equal(resp$response$status_code, 200)
+  expect_true(length(resp$content) > 1)
+  expect_true(is.numeric(resp$content$itemsCount))
+})
 
-resp <- query_search_api("arioch")
-x <- tidy_search_items(resp = resp)
-x
+test_that("Simple query with refinment is OK!", {
+  resp <- query_search_api("arioch", qf = "1712")
+  expect_equal(class(resp), "europeana_search_api")
+  expect_equal(resp$response$status_code, 200)
+  expect_true(length(resp$content) > 1)
+  expect_true(is.numeric(resp$content$itemsCount))
+})
 
-resp <- query_search_api("arioch", qf = "1712")
-x <- tidy_search_items(resp = resp)
-x
-
-resp <- query_search_api("arioch", media = TRUE)
-x <- tidy_search_items(resp = resp)
-x
-
-resp <- query_search_api("arioch", thumbnail = TRUE)
-x <- tidy_search_items(resp = resp)
-x
-
-
-resp <- query_search_api("arioch", landingpage = FALSE)
-x <- tidy_search_items(resp = resp)
-x
-
-
-resp <- query_search_api("arioch", colourpalette = "#2F4F4F")
-x <- tidy_search_items(resp = resp)
-x
-
-resp <- query_search_api("arioch", theme = "art")
-x <- tidy_search_items(resp = resp)
-x
-
-resp <- query_search_api("arioch", sort = "COMPLETENESS")
-x <- tidy_search_items(resp = resp)
-x1 <- x$id
-
-
-resp <- query_search_api("arioch", sort = "COMPLETENESS + timestamp_update")
-x <- tidy_search_items(resp = resp)
-x2 <- x$id
-
-tidy_cursored_search("arioch", rows = 3, theme = "art")
-tidy_cursored_search("arioch", rows = 3)
-tidy_cursored_search("cat", max_items = 1000)
-
-
-resp <- tidy_cursored_search(
-  "animal",
-  rows = 100,
-  max_items = 1000,
-  theme = "art",
-  media = TRUE
-)
-
-resp %>%
-  names()
-
-
+test_that("Simple query with refinment and media is OK!", {
+  resp <- query_search_api("arioch", qf = "1712", media = TRUE)
+  expect_equal(class(resp), "europeana_search_api")
+  expect_equal(resp$response$status_code, 200)
+  expect_true(length(resp$content) > 1)
+  expect_true(is.numeric(resp$content$itemsCount))
+})

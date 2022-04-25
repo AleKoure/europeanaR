@@ -1,0 +1,62 @@
+#' Query Record API
+#'
+#' @description The Record API provides direct access to the Europeana data,
+#' which is modeled using the Europeana Data Model (EDM). While EDM is an open
+#' flexible data model featuring various kind of resources and relations
+#' between them, the Record API (and the Europeana Collections Portal) supports
+#' the retrieval of a segment of EDM for practical purposes.
+#'
+#' These "atomic" EDM segments typically contain one Cultural Heritage Object
+#' (CHO), aggregation information that connects the metadata and digital
+#' representations, and a number of contextual resources related to the CHO,
+#' such as agents, locations, concepts, and time.
+#'
+#' @param id, string with the `RECORD_ID` in the form of `/DATASET_ID/LOCAL_ID`
+#' @param path, string that indicates version of the API
+#' @param ..., other parameters passed as query parameters
+#' @source https://pro.europeana.eu/page/record
+#'
+#' @export
+query_record_api <- function(id, path = "/record/v2", ...) {
+
+  stopifnot(is.character(id))
+  stopifnot(is.character(path))
+
+  ua <- httr::user_agent("euRopeana (http://my.package.web.site)")
+
+  wskey <- get_key()
+
+  url <- httr::modify_url("https://api.europeana.eu",
+                          path = paste0(path, id,  ".json"))
+
+  resp <- httr::GET(url, ua, query = list(wskey = wskey))
+
+  if (httr::http_type(resp) != "application/json") {
+    stop("API did not return json", call. = FALSE)
+  }
+
+  parsed <- jsonlite::fromJSON(httr::content(resp, "text"),
+                               simplifyVector = FALSE)
+
+  if (httr::http_error(resp)) {
+    stop(
+      sprintf(
+        "Europeana search API request failed [%s]\n%s\n<%s>",
+        httr::status_code(resp),
+        parsed$message,
+        parsed$documentation_url
+      ),
+      call. = FALSE
+    )
+  }
+
+  structure(
+    list(
+      content = parsed,
+      path = path,
+      response = resp
+    ),
+    class = "europeana_record_api"
+  )
+
+}

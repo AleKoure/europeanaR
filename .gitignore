@@ -6,3 +6,5 @@
 .httr-oauth
 .DS_Store
 data-raw/town_art_obj/
+inst/doc
+docs
