@@ -28,5 +28,6 @@ jobs:
 
       - uses: r-lib/actions/check-r-package@v1
 
-      run: |
-        echo EUROPEANA_KEY="$EUROPEANA_KEY" >> ~/.Renviron
+      - name: Create and populate .Renviron file
+        run: |
+          echo EUROPEANA_KEY="$EUROPEANA_KEY" >> ~/.Renviron
