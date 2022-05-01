@@ -1,4 +1,5 @@
 test_that("Tidy response search response is OK!", {
+  skip_on_cran()
   resp <- query_search_api("arioch")
   res <- tidy_search_items(resp = resp)
   expect_true(is.data.table(res))

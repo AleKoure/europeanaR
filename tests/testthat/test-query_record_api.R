@@ -1,4 +1,5 @@
 test_that("query record API is OK!", {
+  skip_on_cran()
   id <- "/2021618/resource_document_teylers_kunstverzamelingen_K_II_009"
   expect_error(resp <- query_record_api(id), NA)
   expect_equal(class(resp), "europeana_record_api")

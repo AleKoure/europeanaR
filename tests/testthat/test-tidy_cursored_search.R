@@ -1,8 +1,8 @@
 test_that("Cursored search is OK!", {
-  max_items <- 10
+  skip_on_cran()
+  max_items <- 20
   resp <- tidy_cursored_search(
-    "animal",
-    rows = 2,
+    query = "animal",
     max_items = max_items,
     theme = "art",
     media = TRUE
