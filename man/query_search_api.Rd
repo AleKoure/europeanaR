@@ -7,7 +7,7 @@
 https://pro.europeana.eu/page/search
 }
 \usage{
-query_search_api(query, rows = 12, path = "/record/v2/search.json", ...)
+query_search_api(query, rows = NULL, path = "/record/v2/search.json", ...)
 }
 \arguments{
 \item{query, }{character string with the search term(s)}
@@ -69,11 +69,15 @@ also possible to randomly order items by using the keyword "random" instead
 of a field name. You can also request for a fixed random order by indicating
 a seed "random_SEED" which is useful when paginating along the same
 randomized order. Use: field_name+sort_order.
-
-```
-query_search_api("arioch")
-````
-
 For more details on the synatx of queries read the officila Europeana
 documentation[QUERY SYNTAX](https://pro.europeana.eu/page/search#syntax).
+}
+\examples{
+\dontshow{if (Sys.getenv("EUROPEANA_KEY") != "") (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\donttest{
+#set your API key with set_key(api_key = "XXXX")
+#query search API
+res <- query_search_api("arioch", qf = "1712", media = TRUE)
+}
+\dontshow{\}) # examplesIf}
 }

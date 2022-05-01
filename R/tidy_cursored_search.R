@@ -5,20 +5,28 @@
 #' collected.
 #'
 #' @param query, character string with the search term(s)
-#' @param rows, numeric that indicates the number of records to return in each
-#' batch with limit up to 100.
 #' @param max_items, numeric that indicates max items collected
 #' @param ..., other params passed to get request, see also `query_search_api()`
 #'
+#' @examplesIf Sys.getenv("EUROPEANA_KEY") != ""
+#' \donttest{
+#' #set your API key with set_key(api_key = "XXXX")
+#' #query search API up to 50 items
+#' tidy_cursored_search(query = "animal",
+#'                      max_items = 50,
+#'                      theme = "art",
+#'                      media = TRUE)
+#' }
+#'
 #' @importFrom utils head
 #' @export
-tidy_cursored_search <- function(query, rows = 100, max_items = 1e4, ...) {
+tidy_cursored_search <- function(query, max_items = 1e4, ...) {
 
   responses <- list()
   cursor <- "*"
-
+  iter <- 1
   while(!is.null(cursor)) {
-    res <- query_search_api(query, rows = rows, cursor = cursor, ...)
+    res <- query_search_api(query, cursor = cursor, ...)
     if(isTRUE(length(res$content$items) == 0)) {
       cursor <- NULL
       next()

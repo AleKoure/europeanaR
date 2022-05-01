@@ -4,13 +4,10 @@
 \alias{tidy_cursored_search}
 \title{Tidy Cursored Search}
 \usage{
-tidy_cursored_search(query, rows = 100, max_items = 10000, ...)
+tidy_cursored_search(query, max_items = 10000, ...)
 }
 \arguments{
 \item{query, }{character string with the search term(s)}
-
-\item{rows, }{numeric that indicates the number of records to return in each
-batch with limit up to 100.}
 
 \item{max_items, }{numeric that indicates max items collected}
 
@@ -20,4 +17,16 @@ batch with limit up to 100.}
 This function is a "runner" of a particular query that consequently makes
 API requests until maximum items are reached or all related items have been
 collected.
+}
+\examples{
+\dontshow{if (Sys.getenv("EUROPEANA_KEY") != "") (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\donttest{
+#set your API key with set_key(api_key = "XXXX")
+#query search API up to 50 items
+tidy_cursored_search(query = "animal",
+                     max_items = 50,
+                     theme = "art",
+                     media = TRUE)
+}
+\dontshow{\}) # examplesIf}
 }

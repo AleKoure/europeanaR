@@ -14,6 +14,18 @@
 #' @param id, string with the `RECORD_ID` in the form of `/DATASET_ID/LOCAL_ID`
 #' @param path, string that indicates version of the API
 #' @param ..., other parameters passed as query parameters
+#'
+#' @examplesIf Sys.getenv("EUROPEANA_KEY") != ""
+#' \donttest{
+#' #set your API key with set_key(api_key = "XXXX")
+#' #query search API
+#' res <- query_search_api("arioch", qf = "1712", media = TRUE)
+#' #get results in tidy format
+#' dat <- tidy_search_items(res)
+#' #query records API for each item
+#' lapply(dat$id, query_record_api)
+#' }
+#'
 #' @source https://pro.europeana.eu/page/record
 #'
 #' @export
@@ -29,7 +41,7 @@ query_record_api <- function(id, path = "/record/v2", ...) {
   url <- httr::modify_url("https://api.europeana.eu",
                           path = paste0(path, id,  ".json"))
 
-  resp <- httr::GET(url, ua, query = list(wskey = wskey))
+  resp <- httr::RETRY("GET", url, ua, query = list(wskey = wskey))
 
   if (httr::http_type(resp) != "application/json") {
     stop("API did not return json", call. = FALSE)

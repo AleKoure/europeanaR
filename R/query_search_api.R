@@ -12,6 +12,7 @@
 #' @param rows, numeric that indicates the number of records to return
 #' @param path, character string that describers API version
 #' @param ..., other parameters passed in get request
+#'
 #' @details In the query parameter the Apache Lucene Query Syntax is inheritly
 #' supported by the Search API. Users can use Lucene and Apache SOLR guides to
 #' get the most out of the Europeana repository. The most basic usage is for
@@ -53,19 +54,21 @@
 #' of a field name. You can also request for a fixed random order by indicating
 #' a seed "random_SEED" which is useful when paginating along the same
 #' randomized order. Use: field_name+sort_order.
-#'
-#' ```
-#' query_search_api("arioch")
-#' ````
-#'
 #' For more details on the synatx of queries read the officila Europeana
 #' documentation[QUERY SYNTAX](https://pro.europeana.eu/page/search#syntax).
 #'
 #' @source https://pro.europeana.eu/page/search
 #'
+#' @examplesIf Sys.getenv("EUROPEANA_KEY") != ""
+#' \donttest{
+#' #set your API key with set_key(api_key = "XXXX")
+#' #query search API
+#' res <- query_search_api("arioch", qf = "1712", media = TRUE)
+#' }
+#'
 #' @export
 query_search_api <- function(query,
-                             rows = 12,
+                             rows = NULL,
                              path = "/record/v2/search.json",
                              ...) {
 
@@ -78,7 +81,13 @@ query_search_api <- function(query,
   url <- httr::modify_url("https://api.europeana.eu",
                     path = path)
 
-  resp <- httr::GET(url, ua, query = list(query = query, wskey = wskey, ...))
+  resp <- httr::RETRY("GET",
+                      url,
+                      ua,
+                      query = list(query = query,
+                                   rows = rows,
+                                   wskey = wskey,
+                                   ...))
 
   if (httr::http_type(resp) != "application/json") {
     stop("API did not return json", call. = FALSE)

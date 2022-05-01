@@ -5,9 +5,9 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/AleKoure/europeanaR/workflows/R-CMD-check/badge.svg)](https://github.com/AleKoure/euRopeana/actions)
+[![R-CMD-check](https://github.com/AleKoure/europeanaR/workflows/R-CMD-check/badge.svg)](https://github.com/AleKoure/europeanaR/actions)
 [![Codecov test
-coverage](https://codecov.io/gh/AleKoure/europeanaR/branch/main/graph/badge.svg)](https://app.codecov.io/gh/AleKoure/euRopeana?branch=main)
+coverage](https://codecov.io/gh/AleKoure/europeanaR/branch/main/graph/badge.svg)](https://app.codecov.io/gh/AleKoure/europeanaR?branch=main)
 <!-- badges: end -->
 
 The goal of europeanaR is to …

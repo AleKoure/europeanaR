@@ -7,8 +7,17 @@
 tidy_search_items(resp)
 }
 \arguments{
-\item{resp, }{and S3 object of type `europeana_search_api`.}
+\item{resp, }{an S3 object of type `europeana_search_api`.}
 }
 \description{
 Transforms API response to a tidy `data.table` for easier manipulation
+}
+\examples{
+\dontshow{if (Sys.getenv("EUROPEANA_KEY") != "") (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\donttest{
+#set your API key with set_key(api_key = "XXXX")
+resp <- query_search_api("arioch")
+tidy_search_items(resp)
+}
+\dontshow{\}) # examplesIf}
 }

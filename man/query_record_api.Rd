@@ -28,3 +28,16 @@ These "atomic" EDM segments typically contain one Cultural Heritage Object
 representations, and a number of contextual resources related to the CHO,
 such as agents, locations, concepts, and time.
 }
+\examples{
+\dontshow{if (Sys.getenv("EUROPEANA_KEY") != "") (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\donttest{
+#set your API key with set_key(api_key = "XXXX")
+#query search API
+res <- query_search_api("arioch", qf = "1712", media = TRUE)
+#get results in tidy format
+dat <- tidy_search_items(res)
+#query records API for each item
+lapply(dat$id, query_record_api)
+}
+\dontshow{\}) # examplesIf}
+}

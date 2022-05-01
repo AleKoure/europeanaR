@@ -2,10 +2,16 @@
 #'
 #' Transforms API response to a tidy `data.table` for easier manipulation
 #'
-#' @param resp, and S3 object of type `europeana_search_api`.
+#' @param resp, an S3 object of type `europeana_search_api`.
 #'
 #' @import data.table magrittr
 #'
+#' @examplesIf Sys.getenv("EUROPEANA_KEY") != ""
+#' \donttest{
+#' #set your API key with set_key(api_key = "XXXX")
+#' resp <- query_search_api("arioch")
+#' tidy_search_items(resp)
+#' }
 #' @export
 tidy_search_items <- function(resp) {
 

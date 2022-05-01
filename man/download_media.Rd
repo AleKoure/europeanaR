@@ -4,12 +4,14 @@
 \alias{download_media}
 \title{Download Media}
 \usage{
-download_media(urls, dest_dir = NULL, quiet = TRUE)
+download_media(resp, download_dir = NULL, type_ = NULL, quiet = TRUE)
 }
 \arguments{
-\item{urls, }{character vector of fiel urls}
+\item{resp, }{an S3 object of type `europeana_search_api`}
 
-\item{dest_dir, }{destination directory}
+\item{download_dir, }{destination directory. If `NULL` then `tempdir()` is used}
+
+\item{type_, }{string in `c("TEXT", "IMAGE", "SOUND", "VIDEO", "3D")`}
 
 \item{quiet, }{boolean to suppress download file messages}
 }
@@ -17,6 +19,16 @@ download_media(urls, dest_dir = NULL, quiet = TRUE)
 destination folder
 }
 \description{
-Function that downloads files from the given urls. The query
-parameter `value` is used as the file name.
+Function that downloads media, using the response object of the
+Europeana search API. It uses the fields `type` and `edmIsShownBy` to
+retrieve the items and store them in a local folder.
+}
+\examples{
+\dontshow{if (Sys.getenv("EUROPEANA_KEY") != "") (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\donttest{
+#set your API key with set_key(api_key = "XXXX")
+resp <- query_search_api("arioch")
+download_media(resp, type = "IMAGE")
+}
+\dontshow{\}) # examplesIf}
 }
