@@ -1,7 +1,5 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
-# europeanaR
+# europeanaR <a href="http://eworx-org.github.io/europeanaR/" rel="nofollow"><img src='man/figures/logo.svg' align="right" height="130"/></a>
 
 <!-- badges: start -->
 
@@ -10,9 +8,14 @@
 coverage](https://codecov.io/gh/AleKoure/europeanaR/branch/main/graph/badge.svg)](https://app.codecov.io/gh/AleKoure/europeanaR?branch=main)
 <!-- badges: end -->
 
-The goal of europeanaR is to …
+The goal of europeanaR is to provide tools to access Linked Open Data
+published by Europeana. Gain access to millions of entries related to
+artworks, books, music, and videos on art, newspapers, archaeology,
+fashion, science, sport, and much more. This thesaurus of cultural
+heritage can be used in numerous creative ways like for example building
+applications, data analysis, Statistical and Deep Learning.
 
-## Installation
+## Getting started
 
 You can install the development version of europeanaR from
 [GitHub](https://github.com/) with:
@@ -22,38 +25,56 @@ You can install the development version of europeanaR from
 devtools::install_github("AleKoure/europeanaR")
 ```
 
+Sign up for your free API key and get developing
+[here](https://pro.europeana.eu/page/get-api)! When you get you personal
+key set it as environmental variable.
+
+``` r
+europeanaR::set_key("YOUR_KEY_GOES_HERE")
+```
+
+Alternatively, you can edit `.Renviron` by inserting your personal key
+to the environmental variable `EUROPEANA_KEY`,
+
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+The Search API provides a way to search for metadata records and media
+on the Europeana repository, for instance give me all results for the
+word “Vermeer”. The basic API call to the search API can return up to
+100 items.
 
 ``` r
 library(europeanaR)
-## basic example code
+library(data.table)
+resp <- query_search_api("Vermeer", rows = 10, profile = "open")
+#transform to tabular data
+resp_tidy <- tidy_search_items(resp)
+#get preview of first items
+first_image <- resp_tidy[type == "IMAGE"][1, edmPreview]
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+<center>
+<img src="https://api.europeana.eu/thumbnail/v2/url.json?uri=http%3A%2F%2Fimageapi.khm.at%2Fimages%2F2574%2FGG_9128_Web.jpg&type=IMAGE">
+</center>
+
+The API call repeats in case of an error, and it is designed to be kind
+to the server, see [here](https://httr.r-lib.org/reference/RETRY.html).
+The retrieved metadata are given in JSON format and are parsed into an R
+object using [jsonlite](https://arxiv.org/abs/1403.2805). In addition,
+these data can be transformed in tabular format and are compatible also
+with the [data.table](https://github.com/Rdatatable/data.table) package
+for fast data manipulation operations.
+
+The response richness can be controlled by using the `profile` query
+parameter. Also, get bulk downloads of metadata and associated media
+files by using the functions `tidy_cursored_search()` and
+`download_media()`.
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+bulk_and_rich <- tidy_cursored_search("Vermeer", max_items = 500,
+                                      profile = "rich")
 ```
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/v1/examples>.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+The Europeana search API documentation can be found
+[here](https://pro.europeana.eu/page/search). See the Tutorial and other
+resources at the package homepage for more information and examples.
