@@ -27,7 +27,8 @@
 #' @param start (numeric) The item in the search results to start with. The first item is 1.
 #' Default: 1
 #' @param sort (character) Sort by a field, e.g., \code{timestamp_update+desc}
-#' @param ... other parameters passed in get request
+#' @param ... parameters passed in get request
+#' @param path (character) URL signature with the API version
 #'
 #' @details In the `query` parameter the Apache Lucene Query Syntax is inheritly
 #' supported by the Search API. Users can use Lucene and Apache SOLR guides to

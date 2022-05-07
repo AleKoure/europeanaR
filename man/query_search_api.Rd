@@ -58,6 +58,8 @@ Default: 1}
 
 \item{sort}{(character) Sort by a field, e.g., \code{timestamp_update+desc}}
 
+\item{path}{(character) URL signature with the API version}
+
 \item{...}{other parameters passed in get request}
 }
 \description{
