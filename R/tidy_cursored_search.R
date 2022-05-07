@@ -27,7 +27,6 @@ tidy_cursored_search <- function(query, max_items = 1e4, ...) {
 
   responses <- list()
   cursor <- "*"
-  iter <- 1
   while(!is.null(cursor)) {
     res <- query_search_api(query, cursor = cursor, ...)
     if(isTRUE(length(res$content$items) == 0)) {

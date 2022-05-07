@@ -41,7 +41,7 @@ query_record_api <- function(id, path = "/record/v2", ...) {
   url <- httr::modify_url("https://api.europeana.eu",
                           path = paste0(path, id,  ".json"))
 
-  resp <- httr::RETRY("GET", url, ua, query = list(wskey = wskey))
+  resp <- httr::RETRY("GET", url, ua, query = list(wskey = wskey, ...))
 
   if (httr::http_type(resp) != "application/json") {
     stop("API did not return json", call. = FALSE)
