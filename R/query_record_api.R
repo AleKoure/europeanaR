@@ -11,9 +11,9 @@
 #' representations, and a number of contextual resources related to the CHO,
 #' such as agents, locations, concepts, and time.
 #'
-#' @param id, string with the `RECORD_ID` in the form of `/DATASET_ID/LOCAL_ID`
-#' @param path, string that indicates version of the API
-#' @param ..., other parameters passed as query parameters
+#' @param id string with the `RECORD_ID` in the form of `/DATASET_ID/LOCAL_ID`
+#' @param path string that indicates version of the API
+#' @param ... other parameters passed as query parameters
 #'
 #' @examplesIf Sys.getenv("EUROPEANA_KEY") != ""
 #' \donttest{

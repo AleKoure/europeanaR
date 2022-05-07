@@ -4,9 +4,9 @@
 #' API requests until maximum items are reached or all related items have been
 #' collected.
 #'
-#' @param query, character string with the search term(s)
-#' @param max_items, numeric that indicates max items collected
-#' @param ..., other params passed to get request, see also `query_search_api()`
+#' @param query string with the search term(s)
+#' @param max_items numeric that indicates max items collected
+#' @param ... params passed to get request, see also `query_search_api()`
 #'
 #' @returns S3 object of type `cursored_search`.
 #'

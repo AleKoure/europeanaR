@@ -5,7 +5,7 @@
 #' Alternatively, use .Renviron to set the key. Get and API key in the
 #' following link https://pro.europeana.eu/page/get-api.
 #'
-#' @param api_key, string with the API key
+#' @param api_key string with the API key
 #' @seealso \code{\link{setkey}}
 #' @export
 set_key <- function(api_key) {

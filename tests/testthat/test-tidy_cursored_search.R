@@ -7,7 +7,7 @@ test_that("Cursored search is OK!", {
     theme = "art",
     media = TRUE
   )
-  expect_equal(class(resp), "cursored_search")
+  expect_true(inherits(resp, "cursored_search"))
   expect_equal(resp$responses[[1]]$response$status_code, 200)
   expect_true(length(resp$responses[[1]]$content) > 1)
   expect_true(is.numeric(resp$responses[[1]]$content$itemsCount))

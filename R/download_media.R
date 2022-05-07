@@ -4,10 +4,10 @@
 #' Europeana search API. It uses the fields `type` and `edmIsShownBy` to
 #' retrieve the items and store them in a local folder.
 #'
-#' @param resp, an S3 object of type `europeana_search_api` or `cursored_search`
-#' @param download_dir, destination directory. If `NULL` then `tempdir()` is used
-#' @param quiet, boolean to suppress download file messages
-#' @param type_, string in `c("TEXT", "IMAGE", "SOUND", "VIDEO", "3D")`
+#' @param resp an S3 object of type `europeana_search_api` or `cursored_search`
+#' @param download_dir destination directory. If `NULL` then `tempdir()` is used
+#' @param quiet boolean to suppress download file messages
+#' @param type_ string in `c("TEXT", "IMAGE", "SOUND", "VIDEO", "3D")`
 #'
 #' @return destination folder
 #'
@@ -35,10 +35,9 @@ download_media <- function(resp,
   # due to NSE notes in R CMD check
   type <- edmIsShownBy <- id <- NULL
 
-  stopifnot(class(resp) %in% c("europeana_search_api", "cursored_search"))
+  stopifnot(inherits(resp, c("europeana_search_api", "cursored_search")))
   stopifnot("Status code is not OK" = resp$response$status_code == 200)
   stopifnot("No items found" = resp$content$itemsCount > 0)
-  stopifnot(is.null(download_dir) || is.character(download_dir))
   stopifnot(is.null(type_) ||
               type_ %in% c("TEXT", "IMAGE", "SOUND", "VIDEO", "3D"))
 
