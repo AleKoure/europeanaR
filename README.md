@@ -53,9 +53,9 @@ resp_tidy <- tidy_search_items(resp)
 first_image <- resp_tidy[type == "IMAGE"][1, edmPreview]
 ```
 
-<center>
-<img src="https://api.europeana.eu/thumbnail/v2/url.json?uri=http%3A%2F%2Fimageapi.khm.at%2Fimages%2F2574%2FGG_9128_Web.jpg&type=IMAGE">
-</center>
+<p align="center">
+<img align="center" src="https://api.europeana.eu/thumbnail/v2/url.json?uri=http%3A%2F%2Fimageapi.khm.at%2Fimages%2F2574%2FGG_9128_Web.jpg&type=IMAGE">
+</p>
 
 The API call repeats in case of an error, and it is designed to be kind
 to the server, see [here](https://httr.r-lib.org/reference/RETRY.html).
