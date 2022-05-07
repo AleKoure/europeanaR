@@ -13,6 +13,9 @@ tidy_cursored_search(query, max_items = 10000, ...)
 
 \item{..., }{other params passed to get request, see also `query_search_api()`}
 }
+\value{
+S3 object of type `cursored_search`.
+}
 \description{
 This function is a "runner" of a particular query that consequently makes
 API requests until maximum items are reached or all related items have been
@@ -23,10 +26,11 @@ collected.
 \donttest{
 #set your API key with set_key(api_key = "XXXX")
 #query search API up to 50 items
-tidy_cursored_search(query = "animal",
-                     max_items = 50,
-                     theme = "art",
-                     media = TRUE)
+res <- tidy_cursored_search(query = "animal",
+                            max_items = 50,
+                            theme = "art",
+                            media = TRUE)
+head(res$data[, 1:3])
 }
 \dontshow{\}) # examplesIf}
 }

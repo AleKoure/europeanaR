@@ -7,7 +7,7 @@
 download_media(resp, download_dir = NULL, type_ = NULL, quiet = TRUE)
 }
 \arguments{
-\item{resp, }{an S3 object of type `europeana_search_api`}
+\item{resp, }{an S3 object of type `europeana_search_api` or `cursored_search`}
 
 \item{download_dir, }{destination directory. If `NULL` then `tempdir()` is used}
 
@@ -27,8 +27,14 @@ retrieve the items and store them in a local folder.
 \dontshow{if (Sys.getenv("EUROPEANA_KEY") != "") (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
 #set your API key with set_key(api_key = "XXXX")
+#example_1
 resp <- query_search_api("arioch")
 download_media(resp, type = "IMAGE")
+
+#example_2 bulk download
+query <- "(when:17 OR when:16 OR when:15 OR when:14) AND what:painting"
+res_bulk <- tidy_cursored_search(query, max_items = 50)
+download_media(res_bulk)
 }
 \dontshow{\}) # examplesIf}
 }

@@ -25,6 +25,9 @@
     <loc>/reference/download_media.html</loc>
   </url>
   <url>
+    <loc>/reference/get_key.html</loc>
+  </url>
+  <url>
     <loc>/reference/index.html</loc>
   </url>
   <url>
@@ -32,6 +35,9 @@
   </url>
   <url>
     <loc>/reference/query_search_api.html</loc>
+  </url>
+  <url>
+    <loc>/reference/set_key.html</loc>
   </url>
   <url>
     <loc>/reference/tidy_cursored_search.html</loc>

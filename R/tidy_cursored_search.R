@@ -8,14 +8,17 @@
 #' @param max_items, numeric that indicates max items collected
 #' @param ..., other params passed to get request, see also `query_search_api()`
 #'
+#' @returns S3 object of type `cursored_search`.
+#'
 #' @examplesIf Sys.getenv("EUROPEANA_KEY") != ""
 #' \donttest{
 #' #set your API key with set_key(api_key = "XXXX")
 #' #query search API up to 50 items
-#' tidy_cursored_search(query = "animal",
-#'                      max_items = 50,
-#'                      theme = "art",
-#'                      media = TRUE)
+#' res <- tidy_cursored_search(query = "animal",
+#'                             max_items = 50,
+#'                             theme = "art",
+#'                             media = TRUE)
+#' head(res$data[, 1:3])
 #' }
 #'
 #' @importFrom utils head
@@ -47,6 +50,14 @@ tidy_cursored_search <- function(query, max_items = 1e4, ...) {
   })
 
   res <- rbindlist(tidy_item_list, fill = TRUE)
-  head(res, max_items)
+
+  structure(
+    list(
+      data = head(res, max_items),
+      url = responses[[1]]$response$url,
+      responses = responses
+    ),
+    class = "cursored_search"
+  )
 
 }
