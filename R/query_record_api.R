@@ -26,11 +26,15 @@
 #' lapply(dat$id, query_record_api)
 #' }
 #'
+#' @importFrom Rdpack reprompt
+#'
 #' @source https://pro.europeana.eu/page/record
 #'
 #' @references
 #' \insertRef{doerr2010europeana}{europeanaR}
+#'
 #' \insertRef{httr}{europeanaR}
+#'
 #' \insertRef{jsonlite}{europeanaR}
 #'
 #' @export

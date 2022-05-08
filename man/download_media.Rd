@@ -28,7 +28,7 @@ retrieve the items and store them in a local folder.
 \donttest{
 #set your API key with set_key(api_key = "XXXX")
 #example_1
-resp <- query_search_api("arioch")
+resp <- query_search_api("arioch", rows = 2)
 download_media(resp, type = "IMAGE")
 
 #example_2 bulk download

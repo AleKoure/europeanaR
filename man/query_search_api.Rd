@@ -91,3 +91,10 @@ res <- query_search_api("arioch", qf = "1712", media = TRUE)
 }
 \dontshow{\}) # examplesIf}
 }
+\references{
+\insertRef{doerr2010europeana}{europeanaR}
+
+\insertRef{httr}{europeanaR}
+
+\insertRef{jsonlite}{europeanaR}
+}

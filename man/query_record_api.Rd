@@ -41,3 +41,10 @@ lapply(dat$id, query_record_api)
 }
 \dontshow{\}) # examplesIf}
 }
+\references{
+\insertRef{doerr2010europeana}{europeanaR}
+
+\insertRef{httr}{europeanaR}
+
+\insertRef{jsonlite}{europeanaR}
+}

@@ -42,6 +42,14 @@
 #'
 #' @source https://pro.europeana.eu/page/search
 #'
+#' @references
+#' \insertRef{doerr2010europeana}{europeanaR}
+#'
+#' \insertRef{httr}{europeanaR}
+#'
+#' \insertRef{jsonlite}{europeanaR}
+#'
+#'
 #' @examplesIf Sys.getenv("EUROPEANA_KEY") != ""
 #' \donttest{
 #' #set your API key with set_key(api_key = "XXXX")

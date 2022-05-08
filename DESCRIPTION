@@ -2,7 +2,10 @@ Package: europeanaR
 Type: Package
 Title:  Interact with Metadata Records and Media on the Europeana Repository
 Version: 0.1.0
-Author: Alexandros Kouretsis, Andreas Giannakoulopoulos, Laida Limniati, Minas Pergantis
+Authors@R: c(
+ person("Alexandros", "Kouretsis", email = "akourets@ionio.gr", role = c("aut", "cre")),
+ person("Andreas", "Giannakoulopoulos", role = "aut"),
+ person("Laida", "Limniati", role = "aut"))
 Maintainer: Alexandros Kouretsis <akourets@ionio.gr>
 Description: Interact with the Europeana Data Model via a variety of API
  endpoints that contains digital collections from thousands of institutions
@@ -24,7 +27,6 @@ Imports:
     jsonlite,
     magrittr,
     utils,
-    urltools,
     Rdpack
 RdMacros: Rdpack
 RoxygenNote: 7.1.2

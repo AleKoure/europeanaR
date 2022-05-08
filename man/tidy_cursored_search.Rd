@@ -25,9 +25,9 @@ collected.
 \dontshow{if (Sys.getenv("EUROPEANA_KEY") != "") (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
 #set your API key with set_key(api_key = "XXXX")
-#query search API up to 50 items
+#query search API up to 3 items
 res <- tidy_cursored_search(query = "animal",
-                            max_items = 50,
+                            max_items = 3,
                             theme = "art",
                             media = TRUE)
 head(res$data[, 1:3])
