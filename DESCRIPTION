@@ -1,11 +1,20 @@
 Package: europeanaR
 Type: Package
-Title: What the Package Does (Title Case)
+Title:  Interact with Metadata Records and Media on the Europeana Repository
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Author: Alexandros Kouretsis, Andreas Giannakoulopoulos, Laida Limniati, Minas Pergantis
+Maintainer: Alexandros Kouretsis <akourets@ionio.gr>
+Description: Interact with the Europeana Data Model via a variety of API
+ endpoints that contains digital collections from thousands of institutions
+ around Europe. This translates to millions of Cultural Heritage Objects in the
+ form of image, text, video, sound and 3D, accompanied by rich metadata. The
+ Data Model design principles are based on the core principles and best
+ practices of the Semantic Web and Linked Data efforts to which Europeana
+ contributes (see, e.g., Doerr, Martin, et al. The europeana data model (edm).
+ World Library and Information Congress: 76th IFLA general conference
+ and assembly. Vol. 10. 2010.). The package also provides methods for bulk
+ downloads of specific subsets of items, including both their metadata
+ and their associated media files.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -15,7 +24,9 @@ Imports:
     jsonlite,
     magrittr,
     utils,
-    urltools
+    urltools,
+    Rdpack
+RdMacros: Rdpack
 RoxygenNote: 7.1.2
 Suggests: 
     covr,

@@ -2,6 +2,6 @@ pandoc: 2.17.1.1
 pkgdown: 2.0.3
 pkgdown_sha: ~
 articles:
-  query-search-api: query-search-api.html
-last_built: 2022-05-08T09:58Z
+  introduction-to-europeana-services: introduction-to-europeana-services.html
+last_built: 2022-05-08T19:00Z
 

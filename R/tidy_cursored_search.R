@@ -54,7 +54,7 @@ tidy_cursored_search <- function(query, max_items = 1e4, ...) {
     list(
       data = head(res, max_items),
       url = responses[[1]]$response$url,
-      responses = responses
+      response = responses[[1]]
     ),
     class = "cursored_search"
   )

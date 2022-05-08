@@ -28,6 +28,11 @@
 #'
 #' @source https://pro.europeana.eu/page/record
 #'
+#' @references
+#' \insertRef{doerr2010europeana}{europeanaR}
+#' \insertRef{httr}{europeanaR}
+#' \insertRef{jsonlite}{europeanaR}
+#'
 #' @export
 query_record_api <- function(id, path = "/record/v2", ...) {
 

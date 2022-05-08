@@ -50,7 +50,7 @@
 #' }
 #'
 #' @export
-query_search_api <- function(query,
+query_search_api <- function(query = NULL,
                              rows = NULL,
                              profile = NULL,
                              qf = NULL,
@@ -68,7 +68,7 @@ query_search_api <- function(query,
 
   stopifnot(`Max rows are 100` = rows <= 100)
 
-  ua <- httr::user_agent("euRopeana (http://my.package.web.site)")
+  ua <- httr::user_agent("europeanaR (https://alekoure.github.io/europeanaR/)")
 
   wskey <- get_key()
 

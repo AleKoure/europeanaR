@@ -3,8 +3,8 @@ test_that("download media for europeana_search_api method is OK!", {
   test_dir <- tempdir()
   resp <- query_search_api("arioch", rows = 2)
   download_dir <- download_media(resp,
-                                  type_ = "IMAGE",
-                                  download_dir = test_dir)
+                                 type_ = "IMAGE",
+                                 download_dir = test_dir)
   expect_true(file.exists(download_dir))
   dat <- tidy_search_items(resp)
   expect_true(

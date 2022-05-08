@@ -8,7 +8,7 @@ https://pro.europeana.eu/page/search
 }
 \usage{
 query_search_api(
-  query,
+  query = NULL,
   rows = NULL,
   profile = NULL,
   qf = NULL,

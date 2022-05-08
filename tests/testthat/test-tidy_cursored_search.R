@@ -8,9 +8,9 @@ test_that("Cursored search is OK!", {
     media = TRUE
   )
   expect_true(inherits(resp, "cursored_search"))
-  expect_equal(resp$responses[[1]]$response$status_code, 200)
-  expect_true(length(resp$responses[[1]]$content) > 1)
-  expect_true(is.numeric(resp$responses[[1]]$content$itemsCount))
+  expect_equal(resp$response$response$status_code, 200)
+  expect_true(length(resp$response$content) > 1)
+  expect_true(is.numeric(resp$response$content$itemsCount))
   expect_true(is.data.table(resp$data))
   expect_equal(nrow(resp$data), max_items)
   expect_true(ncol(resp$data) > 0)
