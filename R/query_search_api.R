@@ -1,4 +1,4 @@
-#' Europeana Search Api
+#' Europeana Search API
 #'
 #' @description The Search API allows to search the Europeana repository for
 #' metadata records and media. The Search API is the most straightforward to
@@ -47,6 +47,8 @@
 #' the `content` field of the S3 object returned.
 #'
 #' @source https://pro.europeana.eu/page/search
+#'
+#' @importFrom Rdpack reprompt
 #'
 #' @references
 #' \insertRef{doerr2010europeana}{europeanaR}

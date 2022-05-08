@@ -2,7 +2,7 @@
 % Please edit documentation in R/query_search_api.R
 \name{query_search_api}
 \alias{query_search_api}
-\title{Europeana Search Api}
+\title{Europeana Search API}
 \source{
 https://pro.europeana.eu/page/search
 }
