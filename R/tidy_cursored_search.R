@@ -27,19 +27,19 @@ tidy_cursored_search <- function(query, max_items = 1e4, ...) {
 
   responses <- list()
   cursor <- "*"
-  while(!is.null(cursor)) {
+  while (!is.null(cursor)) {
     res <- query_search_api(query, cursor = cursor, ...)
-    if(isTRUE(length(res$content$items) == 0)) {
+    if (isTRUE(length(res$content$items) == 0)) {
       cursor <- NULL
-      next()
+      next ()
     }
     responses[[cursor]] <- res
     item_length <- sapply(responses, function(x) {
       length(x$content$items)
     })
-    if(sum(item_length, na.rm = TRUE) >= max_items){
+    if (sum(item_length, na.rm = TRUE) >= max_items) {
       cursor <- NULL
-      next()
+      next ()
     }
     cursor <- res$content$nextCursor
   }

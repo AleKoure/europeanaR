@@ -46,10 +46,10 @@ download_media <- function(resp,
                  europeana_search_api = tidy_search_items(resp),
                  cursored_search = resp$data)
 
-  if(!is.null(type_))
+  if (!is.null(type_))
     data <- data[type == type_]
 
-  if(is.null(download_dir))
+  if (is.null(download_dir))
     download_dir <- tempdir()
 
   dir.create(download_dir, showWarnings = FALSE)
@@ -58,7 +58,7 @@ download_media <- function(resp,
     tryCatch({
       file_path <- file.path(download_dir, gsub(".*/", "", data[i, id]))
       resp <- httr::RETRY("GET", data[i, edmIsShownBy],
-                          httr::write_disk(file_path, overwrite=TRUE))
+                          httr::write_disk(file_path, overwrite = TRUE))
 
     }, error = function(e) {
       message(paste0("Cannot reach resource: ", data[i, id]))

@@ -10,18 +10,24 @@
 #'
 #' @param query (character) string with the search term(s)
 #' @param rows (numeric) that indicates the number of records to return
-#' @param profile (character) Profile parameter controls the format and richness of the response.
-#' @param qf (character) Facet filtering query. This parameter can be defined more than once.
+#' @param profile (character) Profile parameter controls the format and richness
+#'  of the response.
+#' @param qf (character) Facet filtering query. This parameter can be defined
+#'  more than once.
 #' @param reusability (character) Filter by copyright status.
-#' @param media (character) Filter by records where an URL to the full media file is
-#' present in the edm:isShownBy or edm:hasView metadata and is resolvable.
-#' @param thumbnail (character) Filter by records where a thumbnail image has been generated
-#' for any of the WebResource media resources (thumbnail available in the edmPreview field).
-#' @param landingpage (character) Filter by records where the link to the original object on
-#' the providers website (edm:isShownAt) is present and verified to be working.
-#' @param colourpalette (character) Filter by images where one of the colours of an image
-#' matches the provided colour code. You can provide this parameter multiple times, the
-#' search will then do an 'AND' search on all the provided colours. See colour palette.
+#' @param media (character) Filter by records where an URL to the full media
+#'  file is present in the edm:isShownBy or edm:hasView metadata and
+#'  is resolvable.
+#' @param thumbnail (character) Filter by records where a thumbnail image has
+#'  been generated for any of the WebResource media resources (thumbnail
+#'  available in the edmPreview field).
+#' @param landingpage (character) Filter by records where the link to the
+#'  original object on the providers website (edm:isShownAt) is present and
+#'  verified to be working.
+#' @param colourpalette (character) Filter by images where one of the colours
+#'  of an image matches the provided colour code. You can provide this parameter
+#'  multiple times, the search will then do an 'AND' search on all the provided
+#'  colours. See colour palette.
 #' @param facet (character) Name of an individual facet. See individual facets.
 #' @param limit (numeric) The number of records to return. Maximum is 100. Default: 10
 #' @param start (numeric) The item in the search results to start with. The first item is 1.
