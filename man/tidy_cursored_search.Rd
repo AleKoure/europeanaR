@@ -7,11 +7,11 @@
 tidy_cursored_search(query, max_items = 10000, ...)
 }
 \arguments{
-\item{query, }{character string with the search term(s)}
+\item{query}{string with the search term(s)}
 
-\item{max_items, }{numeric that indicates max items collected}
+\item{max_items}{numeric that indicates max items collected}
 
-\item{..., }{other params passed to get request, see also `query_search_api()`}
+\item{...}{params passed to get request, see also `query_search_api()`}
 }
 \value{
 S3 object of type `cursored_search`.

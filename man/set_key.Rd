@@ -7,7 +7,7 @@
 set_key(api_key)
 }
 \arguments{
-\item{api_key, }{string with the API key}
+\item{api_key}{string with the API key}
 }
 \description{
 This function is a simple wrapper of the `Sys.setenv` base

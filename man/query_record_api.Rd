@@ -10,11 +10,11 @@ https://pro.europeana.eu/page/record
 query_record_api(id, path = "/record/v2", ...)
 }
 \arguments{
-\item{id, }{string with the `RECORD_ID` in the form of `/DATASET_ID/LOCAL_ID`}
+\item{id}{string with the `RECORD_ID` in the form of `/DATASET_ID/LOCAL_ID`}
 
-\item{path, }{string that indicates version of the API}
+\item{path}{string that indicates version of the API}
 
-\item{..., }{other parameters passed as query parameters}
+\item{...}{other parameters passed as query parameters}
 }
 \description{
 The Record API provides direct access to the Europeana data,

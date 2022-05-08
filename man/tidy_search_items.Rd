@@ -7,7 +7,7 @@
 tidy_search_items(resp)
 }
 \arguments{
-\item{resp, }{an S3 object of type `europeana_search_api`.}
+\item{resp}{an S3 object of type `europeana_search_api`}
 }
 \description{
 Transforms API response to a tidy `data.table` for easier manipulation

@@ -19,8 +19,9 @@
 #' download_media(resp, type = "IMAGE")
 #'
 #' #example_2 bulk download
-#' query <- "(when:17 OR when:16 OR when:15 OR when:14) AND what:painting"
-#' res_bulk <- tidy_cursored_search(query, max_items = 50)
+#' res_bulk <- tidy_cursored_search(query = "animal",
+#'                                  qf = "when:17 AND what:painting",
+#'                                  max_items = 3)
 #' download_media(res_bulk)
 #' }
 #'

@@ -60,7 +60,7 @@ Default: 1}
 
 \item{path}{(character) URL signature with the API version}
 
-\item{...}{other parameters passed in get request}
+\item{...}{parameters passed in get request}
 }
 \description{
 The Search API allows to search the Europeana repository for
