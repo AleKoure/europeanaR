@@ -1,5 +1,5 @@
 
-# europeanaR <a href="http://eworx-org.github.io/europeanaR/" rel="nofollow"><img src='man/figures/logo.svg' align="right" height="130"/></a>
+# europeanaR <a href="https://alekoure.github.io/europeanaR/" rel="nofollow"><img src='man/figures/logo.svg' align="right" height="130"/></a>
 
 <!-- badges: start -->
 
@@ -46,7 +46,7 @@ word “Vermeer”. The basic API call to the search API can return up to
 ``` r
 library(europeanaR)
 library(data.table)
-resp <- query_search_api("Vermeer", rows = 10, profile = "open")
+resp <- query_search_api("Vermeer", rows = 10, reusability = "open")
 #transform to tabular data
 resp_tidy <- tidy_search_items(resp)
 #get preview of first items
@@ -54,7 +54,7 @@ first_image <- resp_tidy[type == "IMAGE"][1, edmPreview]
 ```
 
 <p align="center">
-<img align="center" src="https://api.europeana.eu/thumbnail/v2/url.json?uri=http%3A%2F%2Fimageapi.khm.at%2Fimages%2F2574%2FGG_9128_Web.jpg&type=IMAGE">
+<img align="center" src="https://api.europeana.eu/thumbnail/v2/url.json?uri=https%3A%2F%2Fwww.rijksmuseum.nl%2Fassetimage2.jsp%3Fid%3DSK-A-2344&type=IMAGE">
 </p>
 
 The API call repeats in case of an error, and it is designed to be kind

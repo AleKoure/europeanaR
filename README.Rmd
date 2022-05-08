@@ -10,7 +10,7 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
-# europeanaR <a href="http://eworx-org.github.io/europeanaR/" rel="nofollow"><img src='man/figures/logo.svg' align="right" height="130"/></a>
+# europeanaR <a href="https://alekoure.github.io/europeanaR/" rel="nofollow"><img src='man/figures/logo.svg' align="right" height="130"/></a>
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/AleKoure/europeanaR/workflows/R-CMD-check/badge.svg)](https://github.com/AleKoure/europeanaR/actions)
@@ -53,7 +53,7 @@ The basic API call to the search API can return up to 100 items.
 ```{r example}
 library(europeanaR)
 library(data.table)
-resp <- query_search_api("Vermeer", rows = 10, profile = "open")
+resp <- query_search_api("Vermeer", rows = 10, reusability = "open")
 #transform to tabular data
 resp_tidy <- tidy_search_items(resp)
 #get preview of first items
