@@ -30,24 +30,30 @@ query_search_api(
 
 \item{rows}{(numeric) that indicates the number of records to return}
 
-\item{profile}{(character) Profile parameter controls the format and richness of the response.}
+\item{profile}{(character) Profile parameter controls the format and richness
+of the response.}
 
-\item{qf}{(character) Facet filtering query. This parameter can be defined more than once.}
+\item{qf}{(character) Facet filtering query. This parameter can be defined
+more than once.}
 
 \item{reusability}{(character) Filter by copyright status.}
 
-\item{media}{(character) Filter by records where an URL to the full media file is
-present in the edm:isShownBy or edm:hasView metadata and is resolvable.}
+\item{media}{(character) Filter by records where an URL to the full media
+file is present in the edm:isShownBy or edm:hasView metadata and
+is resolvable.}
 
-\item{thumbnail}{(character) Filter by records where a thumbnail image has been generated
-for any of the WebResource media resources (thumbnail available in the edmPreview field).}
+\item{thumbnail}{(character) Filter by records where a thumbnail image has
+been generated for any of the WebResource media resources (thumbnail
+available in the edmPreview field).}
 
-\item{landingpage}{(character) Filter by records where the link to the original object on
-the providers website (edm:isShownAt) is present and verified to be working.}
+\item{landingpage}{(character) Filter by records where the link to the
+original object on the providers website (edm:isShownAt) is present and
+verified to be working.}
 
-\item{colourpalette}{(character) Filter by images where one of the colours of an image
-matches the provided colour code. You can provide this parameter multiple times, the
-search will then do an 'AND' search on all the provided colours. See colour palette.}
+\item{colourpalette}{(character) Filter by images where one of the colours
+of an image matches the provided colour code. You can provide this parameter
+multiple times, the search will then do an 'AND' search on all the provided
+colours. See colour palette.}
 
 \item{facet}{(character) Name of an individual facet. See individual facets.}
 

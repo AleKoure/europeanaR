@@ -21,6 +21,7 @@ Description: Interact with the Europeana Data Model via a variety of API
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+URL: https://alekoure.github.io/europeanaR/, https://github.com/AleKoure/europeanaR
 Imports: 
     data.table,
     httr,
