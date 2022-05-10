@@ -84,7 +84,7 @@ query_search_api <- function(query = NULL,
 
   stopifnot(`Max rows are 100` = rows <= 100)
 
-  ua <- httr::user_agent("europeanaR (https://alekoure.github.io/europeanaR/)")
+  ua <- httr::user_agent("europeanaR (https://github.com/AleKoure/europeanaR)")
 
   wskey <- get_key()
 

@@ -78,5 +78,5 @@ bulk_and_rich <- tidy_cursored_search("Vermeer", max_items = 500,
 The Europeana services documentation can be found
 [here](https://pro.europeana.eu/page/search). See the vignettes section
 and other resources at the package
-[homepage](https://alekoure.github.io/europeanaR) for more information
+[homepage](https://alekoure.github.io/europeanaR/) for more information
 and examples.
