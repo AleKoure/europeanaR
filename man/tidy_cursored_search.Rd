@@ -14,7 +14,10 @@ tidy_cursored_search(query, max_items = 10000, ...)
 \item{...}{params passed to get request, see also `query_search_api()`}
 }
 \value{
-S3 object of type `cursored_search`.
+S3 object of type `cursored_search`. Contains a `data.table` with
+all the responses transformed to tabular format, the path to the first
+request that starts the cursored search, and the corresponding response object
+compatible with `httr` methods.
 }
 \description{
 This function is a "runner" of a particular query that consequently makes

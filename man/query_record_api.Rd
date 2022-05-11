@@ -16,6 +16,10 @@ query_record_api(id, path = "/record/v2", ...)
 
 \item{...}{other parameters passed as query parameters}
 }
+\value{
+S3 object of class `europeana_record_api`. Contains the parsed content,
+the path, and the API response compatible with `httr` methods.
+}
 \description{
 The Record API provides direct access to the Europeana data,
 which is modeled using the Europeana Data Model (EDM). While EDM is an open

@@ -9,6 +9,10 @@ set_key(api_key)
 \arguments{
 \item{api_key}{string with the API key}
 }
+\value{
+No return value, called for setting the environmental variable
+`EUROPEANA_KEY`.
+}
 \description{
 This function is a simple wrapper of the `Sys.setenv` base
 function. It sets the value of the environmental variable `EUROPEANA_KEY`.

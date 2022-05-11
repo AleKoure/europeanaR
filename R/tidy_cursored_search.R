@@ -8,7 +8,10 @@
 #' @param max_items numeric that indicates max items collected
 #' @param ... params passed to get request, see also `query_search_api()`
 #'
-#' @returns S3 object of type `cursored_search`.
+#' @returns S3 object of type `cursored_search`. Contains a `data.table` with
+#' all the responses transformed to tabular format, the path to the first
+#' request that starts the cursored search, and the corresponding response object
+#' compatible with `httr` methods.
 #'
 #' @examplesIf Sys.getenv("EUROPEANA_KEY") != ""
 #' \donttest{

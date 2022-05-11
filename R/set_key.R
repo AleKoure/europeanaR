@@ -6,6 +6,10 @@
 #' following link https://pro.europeana.eu/page/get-api.
 #'
 #' @param api_key string with the API key
+#'
+#' @returns No return value, called for setting the environmental variable
+#' `EUROPEANA_KEY`.
+#'
 #' @seealso \code{\link{setkey}}
 #' @export
 set_key <- function(api_key) {

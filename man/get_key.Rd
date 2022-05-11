@@ -6,10 +6,13 @@
 \usage{
 get_key()
 }
+\value{
+character with the API key stored as environmental variable
+}
 \description{
 This function is a simple wrapper of the `Sys.getenv` base
 function. It gets the value of the environmental variable `EUROPEANA_KEY`.
 }
 \seealso{
-\code{\link{setkey}}
+\code{\link{set_key}}
 }

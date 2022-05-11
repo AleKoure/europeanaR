@@ -15,6 +15,9 @@
 #' @param path string that indicates version of the API
 #' @param ... other parameters passed as query parameters
 #'
+#' @returns S3 object of class `europeana_record_api`. Contains the parsed content,
+#' the path, and the API response compatible with `httr` methods.
+#'
 #' @examplesIf Sys.getenv("EUROPEANA_KEY") != ""
 #' \donttest{
 #' #set your API key with set_key(api_key = "XXXX")

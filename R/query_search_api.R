@@ -36,6 +36,9 @@
 #' @param ... parameters passed in get request
 #' @param path (character) URL signature with the API version
 #'
+#' @returns S3 object of class `europeana_search_api`. Contains the parsed content,
+#' the path, and the API response compatible with `httr` methods.
+#'
 #' @details In the `query` parameter the Apache Lucene Query Syntax is inheritly
 #' supported by the Search API. Users can use Lucene and Apache SOLR guides to
 #' get the most out of the Europeana repository.

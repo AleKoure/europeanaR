@@ -68,6 +68,10 @@ Default: 1}
 
 \item{...}{parameters passed in get request}
 }
+\value{
+S3 object of class `europeana_search_api`. Contains the parsed content,
+the path, and the API response compatible with `httr` methods.
+}
 \description{
 The Search API allows to search the Europeana repository for
 metadata records and media. The Search API is the most straightforward to
