@@ -9,6 +9,10 @@ tidy_search_items(resp)
 \arguments{
 \item{resp}{an S3 object of type `europeana_search_api`}
 }
+\value{
+`data.table` with stacked results collected from the search api.
+Each row corresponds to a Cultural Heritage Object.
+}
 \description{
 Transforms API response to a tidy `data.table` for easier manipulation
 }

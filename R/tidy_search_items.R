@@ -4,6 +4,9 @@
 #'
 #' @param resp an S3 object of type `europeana_search_api`
 #'
+#' @returns `data.table` with stacked results collected from the search api.
+#' Each row corresponds to a Cultural Heritage Object.
+#'
 #' @import data.table magrittr
 #'
 #' @examplesIf Sys.getenv("EUROPEANA_KEY") != ""
